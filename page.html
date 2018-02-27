@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page Title</title>
+</head>
+<body>
+  <script>
+ 	// Your JavaScript goes here!
+    function computerPlay(){
+      let random = Math.floor(Math.random() * 3) + 1
+      if(random === 1)
+        return "Paper";
+      else if(random === 2)
+        return "Scissors";
+      else {
+        return "Rock";
+      }
+    }
+
+
+
+    function playRound(playerSelection, computerSelection){
+      let selection = playerSelection.toLowerCase();
+      switch(selection){
+        case "paper":
+        if(computerSelection === "Paper")
+          return "It's a draw! Try again.";
+        else if(computerSelection === "Rock")
+          return "You win! Paper beats Rock.";
+        else
+          return "You loose! Scissors beats Paper.";
+        break;
+
+        case "rock":
+        if(computerSelection === "Paper")
+          return "You loose! Paper beats Rock.";
+        else if(computerSelection === "Rock")
+          return "It's a draw! Try again.";
+        else
+         return "You win! Rock beats Scissors.";
+        break;
+
+        case "scissors":
+        if(computerSelection === "Paper")
+        return "You win! Scissors beats Paper.";
+        else if(computerSelection === "Rock")
+        return "You loose! Rock beats Scissors.";
+
+        else
+        return "It's a draw! Try again.";
+        break;
+      }
+
+
+    }
+
+
+
+    for(let i=0; i<5; i++)
+    {
+      let playerSelection = prompt("What's gonna be?");
+      console.log(playRound(playerSelection, computerPlay()));
+    }
+  </script>
+</body>
+</html>
